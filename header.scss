@@ -1,0 +1,109 @@
+// Header
+
+
+// Header Templates
+
+%column-1-n{
+	-ms-flex: 0 0 10.5%;
+    flex: 0 0 10.5%;
+    max-width: 10.5%;
+}
+
+%column-2-n{
+	-ms-flex: 0 0 14.666667%;
+    flex: 0 0 14%;
+    max-width: 14%;
+}
+
+%nav-background-current{
+	text-align: center;
+	background: url("img/background-current.png");
+}
+
+%nav-background-other{
+	text-align: center;
+	background: url("img/background-other.png");
+}
+
+%nav-text{
+	font-size: 17px;
+	font-family: "Montserrat-SemiBold";
+	line-height: 20px;
+	color: #00376a;
+	margin: 0 0;
+	position: relative;
+}
+
+// Varibles
+
+$grid: 1920px;
+
+
+// Content
+
+.flex{
+	display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.wrapper{
+	max-width: $grid;
+	width: 100%;
+}
+
+.header{
+	margin: 25px 60px;
+
+	@media (max-width: 600px){
+		display: none !important;
+	
+	}
+}
+
+.logo{
+	@include max-width(165px, 100%)
+}
+
+.column-1-n{
+    margin: 0 0px 0 0px;
+    @extend %column-1-n;
+}
+.column-1-n:first-child {
+	@extend %column-1-n;
+    margin: 0 13px 0 25px;
+}
+.column-1-n:last-child{
+	@extend %column-1-n;
+    margin: 0 25px 0 0px;
+}
+
+.column-2-n {
+    @extend %column-2-n;
+}
+
+.nav-background-current{
+	@extend %nav-background-current;
+}
+
+.nav-background-other{
+	@extend %nav-background-other;
+}
+.nav-background-styles{
+	@include background-position-size-repeat(center, contain, no-repeat);
+	@include nav-background-maxwidth-maxheight(130px, 100%, 125px, 100%);
+}
+.nav-text{
+	@extend %nav-text;
+	top: 50px;
+}
+.nav-text-servizi{
+	@extend %nav-text;
+	top: 40px;
+}
+.nav-text-comunita{
+	@extend %nav-text;
+	top: 30px;
+}
+

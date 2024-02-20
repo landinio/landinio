@@ -1,0 +1,39 @@
+.hidden-large{
+	display: none;
+
+	@media (max-width: 600px){
+		display: inline-block;
+	}
+}
+.hidden-large-block{
+	display: none;
+
+	@media (max-width: 600px){
+		display: block;
+	}
+}
+.hidden-small-block{
+	display: block;
+
+	@media (max-width: 600px){
+		display: none;
+		
+	}
+}
+.hidden-small{
+	display: inline-block;
+
+	@media (max-width: 600px){
+		display: none;
+	}
+}	
+
+@media (max-width: 600px){
+	.flex-mobile{
+		display: -ms-flexbox;
+	    display: flex;
+	    -ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	    flex-flow: column;
+	}
+}

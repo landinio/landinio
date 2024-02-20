@@ -1,0 +1,631 @@
+
+
+// mixins ============================================================================================
+
+// Header mixins
+
+@mixin nav-background-maxwidth-maxheight($mw, $w, $mh, $h){
+	max-width: $mw;
+	max-height: $mh;
+	height: $h;
+	width: $w;
+}
+
+@mixin background-position-size-repeat($p, $sz, $rep){
+	background-position: $p;
+	background-size: $sz;
+	background-repeat: $rep;
+}
+
+@mixin max-width($mw, $w){
+	max-width: $mw;
+	width: $w;
+}
+
+
+// for backgrounds 
+@mixin background-maxwidth-height($mw, $w, $min-h){
+	max-width: $mw;
+	width: $w;
+	min-height: $min-h;
+}
+
+
+// for text
+@mixin text-styles($fz, $fm, $lh, $color){
+	font-size: $fz;
+	font-family: $fm;
+	line-height: $lh;
+	color: $color;
+}
+@mixin text-margin-padding($margin, $padding){
+	margin: $margin;
+	padding: $padding;
+}
+
+
+
+// Templates ============================================================================================
+
+%contacts-icon{
+	max-width: 40px;
+	width: 100%;
+	display: inline-block;
+}
+
+%btn-styles{
+	display: inline-block;
+	border-radius: 10px;
+	background: rgb(139,128,188);
+	background: linear-gradient(90deg, rgba(139,128,188,1) 0%, rgba(148,38,150,1) 65%, rgba(57,47,146,1) 100%);
+}
+
+// Varibles ============================================================================================
+
+// Varibles for contacts(in first section)
+$column-1: 9.333333%;
+$column-3: 20%;
+$column-5: 44.666667%;
+
+
+// Content ============================================================================================
+
+body {
+  overflow: scroll;
+}
+main{
+	overflow: hidden;
+}
+
+.img-n{
+	max-width: 1920px;
+	width: 100%;
+}
+
+// First section
+.first-section{
+	background: url("img/section1.png");
+	@include background-maxwidth-height(1920px, 100%, 720px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	padding: 0 130px;
+
+	@media (max-width: 600px){
+		@include background-maxwidth-height(600px, 100%, 0px);
+		@include background-position-size-repeat(center, cover !important, no-repeat);
+		background: url("img/section1m.jpg");
+		padding: 30px 0px;
+	}
+ }
+.column-3-contacts{
+	flex: 0 0 $column-3;
+    max-width: $column-3;
+}
+.column-5-contacts {
+    -ms-flex: 0 0 $column-5;
+    flex: 0 0 $column-5;
+    max-width: $column-5;
+}
+.column-1-contacts {
+    -ms-flex: 0 0 $column-1;
+    flex: 0 0 $column-1;
+    max-width: $column-1;
+}
+
+.border-right-n{
+	border-right: 1px solid black;
+	@media (max-width: 600px){
+		border: 0;
+	}
+}
+
+.first-section-contacts{
+	max-width: 820px;
+	width: 100%;
+	background: white;
+	border-radius: 0px 0px 20px 20px;
+	opacity: 0.95;
+	margin: 0 auto;
+	@media (max-width: 600px){
+		max-width: 50px;
+	    width: 100%;
+	    background: white;
+	    border-radius: 0px 20px 20px 0px;
+	    opacity: 0.85;
+	    margin: 0 0 0 0;
+	    text-align: center;
+	}
+}
+
+
+.contacts-icon{
+	@extend %contacts-icon;
+	@media (max-width: 600px){
+		max-width: 30px;
+	    width: 100%;
+	    display: inline-block;
+	}
+}
+
+.contacts-icon-l{
+	@extend %contacts-icon;
+	position: relative;
+	top: 5px;
+	@media (max-width: 600px){
+		max-width: 30px;
+	    width: 100%;
+	    display: inline-block;
+	    position: relative;
+	    top: 0px;
+	}
+}
+
+.contacts-p{
+	@include text-styles(20px, "Montserrat-Regular", 24px, black);
+	display: inline-block;
+	margin: 0 0px 0px 5px;
+	position: relative;
+	top: 5px;
+}
+.contacts-item-padding{
+	padding: 10px 15px;
+	@media (max-width: 600px){
+		padding: 10px 5px;
+	}
+}
+.first-section-block{
+	max-width: 520px;
+}
+
+.first-section-h1{
+	@include text-styles(60px, "Montserrat-Bold", 70px, #00376a);
+	margin: 0 0 45px 0;
+}
+
+.first-section-p{
+	@include text-styles(30px, "Montserrat-SemiBold", 38px, #00376a);
+	margin: 0 0 40px 0;
+}
+
+.btn-large{
+	@extend %btn-styles;
+	@include text-styles(26px, "Montserrat-SemiBold", 26px, white);
+	display: inline-block;
+	border-radius: 10px;
+	margin: 0 0;
+	padding: 20px 30px;
+
+}
+.first-section-img-play{
+	display: inline-block;
+	position: absolute;
+	right: 400px;
+	max-width: 150px;
+	width: 100%;
+	margin: 50px 0 0 0;
+
+	@media (max-width: 600px){
+		display: inline-block;
+		position: absolute;
+		right: 38%;
+		max-width: 100px;
+	    width: 100%;
+		margin: -150px 0 0 0;
+	}	
+}
+.t-center{
+	text-align: center;
+}
+
+
+
+// Second section
+
+.second-section{
+	background: url("img/section2.png");
+	@include background-maxwidth-height(1920px, 100%, 720px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	padding: 60px 20px;
+	@media (max-width: 600px){
+		@include background-maxwidth-height(600px, 100%, 0px);
+		@include background-position-size-repeat(center, cover, no-repeat);
+	    background: url("img/section2.png");
+	    padding: 30px 0px;
+	}
+}
+.second-section-img{
+	@include max-width(560px, 100%);
+}
+
+.second-section-block{
+	background: white;
+	padding: 15px;
+	border-radius: 20px;
+	margin: 0 20px;
+	@media (max-width: 600px){
+		background: white;
+	    padding: 15px;
+	    border-radius: 20px;
+	    margin: 0 10px;
+	}
+}
+
+.second-section-h1{
+	@include text-styles(60px, "Montserrat-Bold", 66px, black);
+	@media (max-width: 600px){
+	    @include text-styles(24px, "Montserrat-Bold", 28px, black);
+	}
+}
+
+.second-section-p{
+	@include text-styles(20px, "Montserrat-Regular", 28px, black);
+}
+
+.btn-medium{
+	@extend %btn-styles;
+	@include text-styles(20px, "Montserrat-SemiBold", 20px, white);
+	margin: 20px 0;
+	padding: 10px 20px;
+}
+
+
+// Third section
+
+.third-section{
+	background: url("img/section3.png");
+	@include background-maxwidth-height(1920px, 100%, 1420px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	padding: 0 130px;
+
+	@media (max-width: 600px){
+		background: url("img/section3.png");
+	    @include background-maxwidth-height(600px, 100%, 0px);
+		@include background-position-size-repeat(center, cover, no-repeat);
+	    padding: 0 10px;
+	}
+}
+.third-section-h1{
+	@include text-styles(65px, "Montserrat-Bold", 70px, blue);
+	margin: 40px 0 60px 0;
+	
+	@media (max-width: 600px){
+		@include text-styles(55px, "Montserrat-Bold", 60px, blue);
+	    margin: 42px 0 40px 0;
+	}
+}
+.third-section-h2{
+	@include text-styles(45px, "Montserrat-Bold", 50px, orange);
+	padding: 200px 0 0 0;
+
+	@media (max-width: 600px){
+		@include text-styles(45px, "Montserrat-Bold", 50px, orange);
+		padding: 50px 0 0 0;
+	}
+}
+.third-section-h4{
+	@include text-styles(43px, "Montserrat-Bold", 50px, black);
+	margin: 0 0 40px 0;
+
+	@media (max-width: 600px){
+		@include text-styles(33px, "Montserrat-Bold", 40px, black);
+		margin: 0 0 40px 0;
+	}
+}
+
+
+// Fourth section
+
+.fourth-section{
+	background: url("img/section4.png");
+	@include background-maxwidth-height(1920px, 100%, 720px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	padding: 40px 130px;
+
+	@media (max-width: 600px){
+		background: url("img/section4.png");
+	    @include background-maxwidth-height(600px, 100%, 0px);
+		@include background-position-size-repeat(center, cover, no-repeat);
+	    padding: 30px 10px;
+	}
+}
+
+.fourth-section-img{
+	@include max-width(250px, 100%);
+}
+.fourth-section-h1{
+	@include text-styles(45px, "Montserrat-Bold", 50px, #2c6cac);
+	margin: 0px 0 40px 0;
+}
+.fourth-section-h6{
+	@include text-styles(24px, "Montserrat-Bold", 28px, #5d2e74);
+	margin: 0 0 20px 0;
+}
+.fourth-section-hr{
+	max-width: 250px;
+	width: 100%;
+	border: solid 1px #ffedb0;
+}
+.fourth-section-block{
+	max-width: 250px;
+	width: 100%;
+	margin: 10px auto;
+	background: #ebe5f3;
+	opacity: 0.9;
+	padding: 15px 10px;
+	border-radius: 10px;
+}
+.fourth-section-p{
+	@include text-styles(18px, "Montserrat-regular", 22px, black);
+	margin: 0 0 20px 0;
+}
+.fourth-section-btn{
+	@extend %btn-styles;
+	@include text-styles(20px, "Montserrat-SemiBold", 20px, white);
+	margin: 10px 0;
+	padding: 10px 10px;
+}
+
+
+// Fiveth section
+
+.fiveth-section{
+	background: url("img/section6.png");
+	@include background-maxwidth-height(1920px, 100%, 720px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	padding: 40px 130px 0 130px;
+
+	@media (max-width: 600px){
+		 background: url("img/section6.png");
+	    @include background-maxwidth-height(1920px, 100%, 0px);
+		@include background-position-size-repeat(center, cover, no-repeat);
+	    padding: 40px 10px 20px 10px;
+	}
+}
+.fiveth-section-h2{
+	@include text-styles(45px, "Montserrat-Bold", 50px, #2c6cac);
+	margin: 0px 0 40px 0;
+}
+.fiveth-section-img{
+	@include max-width(690px, 100%);
+	position: relative;
+	top: 10px;
+}
+.fiveth-section-block{
+	background: #c7c1db;
+	opacity: 0.9;
+	padding: 10px;
+	border-radius: 10px;
+}
+.fiveth-section-h4{
+	@include text-styles(45px, "Montserrat-Bold", 50px, #2c6cac);
+	margin: 0px 0 20px 0;
+}
+.fiveth-section-p{
+	@include text-styles(25px, "Montserrat-Regular", 30px, black);
+	margin: 0px 0 20px 0;
+}
+
+// Sixth section
+
+.sixth-section{
+	@include background-maxwidth-height(1920px, 100%, 720px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	background: url("img/section7.jpg");
+	padding: 60px 130px;
+	@media (max-width: 600px){
+		background: url("img/section7.jpg");
+	    @include background-maxwidth-height(600px, 100%, 0px);
+		@include background-position-size-repeat(center, cover, no-repeat);
+	    padding: 60px 10px;
+	}
+}
+.sixth-section-img{
+	@include max-width(560px, 100%);
+	@media (max-width: 600px){
+	    @include max-width(360px, 100%);
+	}
+}
+.sixth-section-h2{
+	@include text-styles(55px, "Montserrat-Bold", 70px, #2c6cac);
+	margin: 0px 0 20px 0;
+	@media (max-width: 600px){
+		@include text-styles(35px, "Montserrat-Bold", 45px, #2c6cac);
+		margin: 0px 0 20px 0;
+	}
+}
+.sixth-section-img2{
+	@include max-width(660px, 100%);
+	margin: 60px 0;
+}
+.sixth-section-p{
+	@include text-styles(35px, "Montserrat-Bold", 40px, #64338c);
+	margin: 40px 0 20px 0;
+	@media (max-width: 600px){
+		@include text-styles(25px, "Montserrat-Bold", 30px, #64338c);
+		margin: 20px 0 20px 0;
+	}
+}
+
+// Seventh section
+
+.seventh-section{
+	@include background-maxwidth-height(1920px, 100%, 720px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	background: url("img/section8.jpg");
+	padding: 80px 200px 40px 200px;
+
+	@media (max-width: 600px){
+		background: url("img/section8.jpg");
+	    @include background-maxwidth-height(600px, 100%, 0px);
+		@include background-position-size-repeat(center, cover, no-repeat);
+	    padding: 80px 20px 40px 20px;
+	}
+}
+
+.seventh-section-h2{
+	@include text-styles(55px, "Montserrat-Bold", 70px, #2c6cac);
+	margin: 0px 0 60px 0;
+}
+.seventh-section-img{
+	@include max-width(50px, 100%);
+}
+.seventh-section-h4{
+	@include text-styles(27px, "Montserrat-Bold", 30px, #64338c);
+	margin: 0 0 0 10px;
+}
+.seventh-section-p{
+	@include text-styles(22px, "Montserrat-Regular", 26px, black);
+	margin: 0px 0 20px 10px;
+}
+.seventh-section-img2{
+	@include max-width(300px, 100%);
+	margin: 20px 0 30px 0;
+}
+.seventh-section-padding{
+	padding: 0 40px 0 40px;
+}
+
+
+// Eight section
+
+.eight-section{
+	background: url("img/section 10.png");
+	@include background-maxwidth-height(1920px, 100%, 820px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	padding: 0 130px;
+}
+
+
+// Nineth section
+
+.nineth-section{
+	background: url("img/section11.png");
+	@include background-maxwidth-height(1920px, 100%, 1620px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	padding: 100px 230px;
+
+	@media (max-width: 600px){
+		background: url("img/section 11.png");
+	    @include background-maxwidth-height(600px, 100%, 0px);
+		@include background-position-size-repeat(center, cover, no-repeat);
+	    padding: 50px 10px;
+	}
+}
+.nineth-section-h2{
+	@include text-styles(55px, "Montserrat-Bold", 70px, #2c6cac);
+	margin: 80px 0 60px 0;
+
+	@media (max-width: 600px){
+		@include text-styles(45px, "Montserrat-Bold", 60px, #2c6cac);
+		margin: 40px 0 30px 0;
+	}
+}
+.nineth-section-img{
+	@include max-width(420px, 100%);
+	margin: 20px 0 30px 0;
+}
+.nineth-section-p{
+	@include text-styles(22px, "Montserrat-Regular", 26px, black);
+	margin: 0px 0 10px 0px;
+}
+.nineth-section-img2{
+	@include max-width(100px, 100%);
+	margin: 10px 0 10px 0;
+}
+.nineth-section-img3{
+	@include max-width(250px, 100%);
+	margin: 10px 0 10px 0;
+}
+.nineth-section-h6{
+	@include text-styles(30px, "Montserrat-Bold", 40px, #64338c);
+	margin: 0 0 20px 0;
+}
+.nineth-section-anchor{
+	@include text-styles(20px, "Montserrat-Bold", 40px, blue);
+	text-decoration: underline;
+}
+.nineth-section-block-btn{
+	margin: 300px 0 0 0;
+
+	@media (max-width: 600px){
+		margin: 50px 0 0 0;
+	}
+}
+
+
+// Tenth section
+
+.tenth-section{
+	background: url("img/section7.jpg");
+	@include background-maxwidth-height(1920px, 100%, 420px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	max-height: 600px;
+	padding: 0 130px;
+	@media (max-width: 600px){
+		background: url("img/section7.jpg");
+	    @include background-maxwidth-height(600px, 100%, 0px);
+		@include background-position-size-repeat(center, cover, no-repeat);
+	    padding: 0 0px;
+	}
+}
+.tenth-section-img{
+	@include max-width(500px, 100%);
+	margin: 10px 0 10px 0;
+	position: relative;
+	bottom: 100px;
+	@media (max-width: 600px){
+		@include max-width(250px, 100%);
+	    margin: 0px 0 0px 0;
+	    position: relative;
+	    bottom: 40px;
+	}
+}
+.tenth-section-h2{
+	@include text-styles(55px, "Montserrat-Bold", 70px, #2c6cac);
+	margin: 80px 0 60px 0;
+	position: relative;
+	bottom: 0px;
+	@media (max-width: 600px){
+		@include text-styles(30px, "Montserrat-Bold", 40px, #2c6cac);
+		margin: 0px 0 0px 0;
+	    position: relative;
+	    bottom: 20px;
+	}
+}
+.tenth-section-h4{
+	@include text-styles(30px, "Montserrat-Bold", 40px, #64338c);
+	margin: 0 0 40px 0;
+	@media (max-width: 600px){
+		@include text-styles(20px, "Montserrat-Bold", 30px, #64338c);
+		margin: 0 0 10px 0;
+	}
+}
+.tenth-section-input{
+	background: white;
+	@include text-styles(24px, "Montserrat-Regular", 30px, black);
+	@include max-width(600px, 100%);
+	padding: 15px;
+	border: 0px;
+	@media (max-width: 600px){
+		@include text-styles(20px, "Montserrat-Regular", 24px, black);
+		@include max-width(400px, 100%);
+		padding: 10px;
+	    border: 0px;
+	}
+}
+
+
+// Eleventh section 
+
+.eleventh-section{
+	background: url("img/section11.jpg");
+	@include background-maxwidth-height(1920px, 100%, 720px);
+	@include background-position-size-repeat(center, cover, no-repeat);
+	padding: 0 130px;
+}
+
+
+// Import ============================================================================================
+
+@import "header.scss";
+@import "grid-basic.scss";
+@import "mobile.scss";

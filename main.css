@@ -1,0 +1,32 @@
+.flex {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.grid_1920px {
+  max-width: 1920px;
+  width: 100%; }
+
+header {
+  margin: 25px 60px; }
+
+.column-1-n {
+  -ms-flex: 0 0 10.5%;
+  flex: 0 0 10.5%;
+  max-width: 10.5%;
+  margin: 0 0px 0 0px; }
+
+.column-1-n:first-child {
+  -ms-flex: 0 0 10.5%;
+  flex: 0 0 10.5%;
+  max-width: 10.5%;
+  margin: 0 13px 0 25px; }
+
+.column-1-n:last-child {
+  -ms-flex: 0 0 10.5%;
+  flex: 0 0 10.5%;
+  max-width: 10.5%;
+  margin: 0 25px 0 0px; }
+
+/*# sourceMappingURL=main.css.map */
